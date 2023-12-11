@@ -2,9 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone repository') {
+        stage('Clone Repository') {
             steps {
-                git 'https://github.com/JianHongHong/ansible-multipass.git'
+                // Replace 'your-repo-url' with your Git repository URL
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], 
+                          userRemoteConfigs: [[url: 'https://github.com/JianHongHong/ansible-multipass.git']]])
             }
         }
         stage('Build') {
