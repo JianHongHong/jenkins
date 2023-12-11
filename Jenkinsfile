@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone repository') {
             steps {
-                git 'https://github.com/JianHongHong/jenkins'
+                git 'https://github.com/JianHongHong/ansible-multipass.git'
             }
         }
         stage('Build') {
