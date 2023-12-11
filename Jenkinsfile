@@ -1,18 +1,23 @@
 pipeline {
-  agent any
-  stages {
-    stage('Checkout') {
-      steps {
-        git 'https://github.com/JianHongHong/ansible-multipass.git'
-      }
-    }
+    agent any
 
-    stage('Run Ansible') {
-      steps {
-        script {
-          sh 'ansible-playbook -i inventory provison.yml'
+    stages {
+        stage('Clone repository') {
+            steps {
+                git 'https://your-git-repository-url.git'
+            }
         }
-      }
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                // Add build commands here
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                // Add test commands here
+            }
+        }
     }
-  }
 }
