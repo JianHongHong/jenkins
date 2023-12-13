@@ -8,7 +8,8 @@ pipeline {
                           userRemoteConfigs: [[url: 'https://github.com/JianHongHong/wagtail-test']]])
             }
         }
-        steps {
+        stage('Build') {
+            steps {
                 echo 'Building...'
                 // Install Poetry
                 sh 'curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -'
@@ -22,6 +23,7 @@ pipeline {
                     sh 'python manage.py runserver'
                 }
             }
+        }
         stage('Test') {
             steps {
                 echo 'Testing...'
